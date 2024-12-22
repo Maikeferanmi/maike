@@ -1,0 +1,1066 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(241, 239, 235);
+}
+.dropdown-toggle::after{
+    display: none;
+}
+.navbar-nav .nav-link:hover{
+    color: rgb(81, 158, 230);
+    transition: color 0.3s ease;
+}
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+.dropdown-menu{
+    display: none; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.navbar{
+    padding-left: 15%;
+    height: 13vh;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+}
+.d-flex{
+   margin-right: 21%;
+   margin-top: 1rem;
+}
+.text-start{
+    font-size: 13.5px;
+}
+.tet1{
+    padding: 10px 15px;
+    font-size: 16px;
+    color: white;
+    background-color: rgb(255, 94, 0);
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    margin-top: -10rem;
+}
+.tet1:hover{
+    background-color: rgb(241, 126, 60);
+}
+.tet1:active{
+    transform: scale(0.95);
+}
+.container-fluidd{
+    width: 100%;
+    height: 60vh;
+    background-color: rgb(253, 253, 253);
+    position: relative;
+}
+.firstp{
+    height: 60vh;
+    width: 45%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+}
+.text1{
+    font-size: 56px;
+    font-weight: 700;
+    color: rgb(255, 94, 0);
+}
+.text11{
+    font-size: 20px;
+}
+.firstb{
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(255, 167, 116);
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+.firstb:hover{
+    background-color: rgb(255, 94, 0);
+}
+.firstb:active{
+    transform: scale(0.95);
+}
+.container-fluidd{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.conn{
+    width: 50%;
+    padding: 10px;
+    margin-left: -20%;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+}
+.mc{
+    width: 230px;
+    height: 145px;
+    margin: 10px 0;
+    box-shadow: 9px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgb(243, 243, 243);
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 40px;
+    position: relative;
+}
+.t1{
+    margin: auto;
+    margin-top: 3rem;
+    color: rgb(255, 94, 0);
+    font-weight: 600;
+    font-size: 31px;
+}
+.topyc{
+    text-align: center;
+    margin-top: 4rem;
+}
+.logo1{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo11{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo2{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo22{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo3{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo33{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo4{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo44{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo5{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo55{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo6{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo66{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo7{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo77{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo8{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo88{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo9{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo99{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo10{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo1010{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logoe11{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo1111{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo12{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo1212{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo13{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo1313{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo14{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo1414{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo15{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo1515{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo16{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo1616{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo-section{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 30px;
+    padding: 50px 200px;
+}
+.logo17{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo1717   {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo18{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo1818{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo19{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo1919{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo20{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo2020{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo21{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo2121{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logoe22{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo2222{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo23{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo2323{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo24{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo2424{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo25{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo2525{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo26{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo2626{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo27{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo2727{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo28{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo2828{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo29{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo2929{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo30{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo3030{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo31{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo3131{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.logo32{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo3232{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.next-sec{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 60vh;
+    border: none;
+}
+.text-container{
+    display: flex;
+    align-items: top;
+}
+.line{
+    width: 4px;
+    height: 100px;
+    background-color: orangered;
+    margin-right: 10px;
+}
+.text-con{
+    font-size: 17px;
+}
+.tete{
+    text-align: center;
+    font-size: 27px;
+    padding-top: 90px;
+    
+}
+.highlight{
+    color: orangered;
+}
+.container{
+    display: flex;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 55px 95px;
+}
+.tetet{
+    text-align: center;
+    font-size: 27px;
+    padding-top: 70px;
+}
+.vid1{
+    width: 42%;
+    height: 47vh;
+    background-color: rgb(177, 100, 100);
+    margin: auto;
+    margin-top: 3rem;
+}
+.ycon{
+    width: 100%;
+    height: 230vh;
+    background-color: white;
+    margin-top: 5rem;
+    text-align: center;
+    font-size: 27px;
+    padding-top: 60px;
+    justify-content: center;
+    align-items: center;
+}
+.containerxx {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 80px 200px;
+    gap: 30px;
+}
+
+.itemxx {
+    width: 45%; 
+    margin-bottom: 5px;
+    background-color: rgb(241, 239, 235);
+    padding: 39px 22px;
+    border-radius: 7px;
+    height: 60vh;
+}
+
+.imgxx {
+    border-radius: 7px;
+}
+
+.sectionxx {
+    margin-top: 15px; 
+    width: 4px;
+    background-color: orangered;
+    height: 17px;
+    margin-left: 22px;
+}
+
+.headingxx {
+    display: inline-block;
+    text-align: left;
+    font-size: 14px;
+    padding: 1px 20px;
+}
+.ppq{
+    margin-right: 20%;
+    margin-top: -1.1rem;
+    font-size: 17px;
+}
+.containerzz {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 7rem;
+    margin-top: 40px;
+}
+.textzz{
+    display: flex;
+    flex-direction: column;
+}
+.sectionzz{
+    width: 8px;
+    height: 8px;
+    background-color: rgb(238, 97, 46);
+    transform: rotate(320deg);
+    margin-top: 7px;
+}
+.divv{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    margin-top: 5px;
+}
+.hell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.hell img{
+    margin: 15px;
+    border-radius: 10px;
+}
+.for{
+    width: 100%;
+    background-color: aliceblue;
+    margin-top: 60px;
+    height: 85vh;
+}
+.tetett{
+    font-size: 18px;
+    text-align: center;
+    padding-top: 38px;
+}
+.tetettt{
+    font-size: 29px;
+    text-align: center;
+    padding-top: 38px;
+}
+.sectionk {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.sectionk img {
+    width: 70px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 22px; 
+}
+.textk {
+    max-width: 1700px;
+    font-size: 14px;
+}
+.hard{
+    width: 80%;
+    max-width: 950px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: auto 1fr 1fr 1fr 1fr;
+    padding: 50px 15.3%;
+}
+.ooo{
+    margin-right: 70px;
+}
+.fa-brands{
+    width: 50px;
+    font-size: 25px;
+}
+.mnm{
+    display: flex;
+    gap: 45%;
+    justify-content: center;
+    padding: 40px;
+}
+hr{
+    width: 70%;
+    margin: auto;
+    background-color: rgb(121, 121, 121);
+    border: none;
+    height: 1px;
+ }
+ .nine{
+    width: 100%;
+    height: 80vh;
+    background-color: white;
+    margin-top: 5rem;
+    text-align: center;
+ }
+ .mbe{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+ }
+ .mbe img{
+    margin: 0 10px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+ }
+ .mbe p{
+    margin-top: 10px;
+    font-size: 13px;
+    text-align: center;
+ }
+ .containeraaa {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 3.5rem;
+    margin: 50px;
+}
+
+.itemaaa{
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+    margin: 1%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.textaaa{
+    flex: 1;
+    font-size: 13px;
+    text-align: left;
+}
+
+.imageaaa{
+    width: 26%;
+    border-radius: 10px;
+}
+.containeraaaq{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 80px;
+}

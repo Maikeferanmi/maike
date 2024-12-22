@@ -1,0 +1,134 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(241, 239, 235);
+}
+.dropdown-toggle::after{
+    display: none;
+}
+.navbar-nav .nav-link:hover{
+    color: rgb(81, 158, 230);
+    transition: color 0.3s ease;
+}
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+.dropdown-menu{
+    display: none; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.navbar{
+    padding-left: 15%;
+    height: 13vh;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    background-color: rgb(241, 239, 235);
+}
+.d-flex{
+    margin-right: 21%;
+    margin-top: 1rem;
+ }
+ hr{
+    width: 70%;
+    margin: auto;
+    background-color: rgb(121, 121, 121);
+    border: none;
+    height: 1px;
+ }
+ .fsec{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 15%;
+    gap: 30%;
+    
+ }
+ .lll{
+    flex: 1;
+ }
+ .lll h6{
+    opacity: 39%;
+ }
+ .rrr{
+    flex: 1;
+    margin-left: 20%;
+    padding: 35px;
+    margin: auto;
+    align-items: baseline;
+    
+ }
+ .firstb{
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(255, 94, 0);
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+ }
+ .firstb:hover{
+    background-color: rgb(194, 74, 5);
+}
+.firstb:active{
+    transform: scale(0.95);
+}
+.flink{
+    color: black;
+}
+.fddiv{
+    background-color: white;
+    width: 30%;
+    height: auto;
+    padding: 35px;
+    font-size: 14px;
+    position: fixed;
+    top: 39%;
+    left: 60%;
+    z-index: 1;
+}
+.pp{
+    flex: 1;
+}
+.secc{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 15%;
+}
+.pp .ppm{
+    margin-top: 2rem;
+}
+.fp{
+    margin-top: -1rem;
+    margin-right: 10%;
+}
+.mmm li{
+    margin-bottom: 0.9%;
+}
+.mmm{
+    padding: 29px 15%;
+}
+.grid{
+    display: grid;
+    grid-template-columns: auto 1fr 1fr 1fr 1fr;
+    padding: 80px 15.3%;
+    
+}
+.ooo{
+    margin-right: 70px;
+}
+.fa-brands{
+    width: 50px;
+    font-size: 25px;
+}
+.mnm{
+    display: flex;
+    gap: 45%;
+    justify-content: center;
+    padding: 50px ;
+    
+}

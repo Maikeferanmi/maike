@@ -1,0 +1,66 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(241, 239, 235);
+}
+.navbar{
+    padding-left: 8px;
+    height: 7vh;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+.tet1{
+    padding: 9px 23px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(255, 94, 0);
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+ }
+ .tet1:hover{
+    background-color: rgb(247, 144, 84);
+}
+.tet1:active{
+    transform: scale(0.95);
+}
+.tet1{
+    margin-top: 70px;
+}
+.class{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+    height: 7vh;
+    gap: 27%;
+}
+.hhh{
+    display: flex;
+    gap: 3%;
+    align-items: center;
+    justify-content: center;
+    
+}
+.hhh:hover{
+    color: red;
+    transition: color 0.3s ease;
+}
+@media(max-width:768px) {
+    
+}
