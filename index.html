@@ -1,461 +1,943 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Y Combinators</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="Ycombinators.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg ">
-        <div class="container-fluid">
-          <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQEAAAEBCAMAAABPMuDPAAAAQlBMVEXyZSLyZSLyZSLyZSLyZSL6roH91br2ilD+6tr4nGn0eDf7wp3+9e3zbyz3k1z0gUP7uI/5pXX+38n8y6z////yZSKuMvVfAAAABXRSTlOAQMBgICelMzEAAAOgSURBVHhe5MABDQAAAIIw3eifmSB8vA3Zt5vcuGEgCsLeUBSpnxnb4f2vmn068xK5Z8FuFQ8gCB9q80Dw42Pc+3y8UQABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQACBR7GnuAF6MafNKnDsv+xx/+1mv3nOKjDKXwRWbwIWYJl4F6wigvclUCcWaCKCeRKwAtNFoBN4TC1wigjelMA2+S5YRATv+VyfXKC+NYIqEphVQEfgT2Dv0ws8VAT+BEqAXbCJCPwJHAEEuorAn0AAARGBO4H1CCFw7O+JoArIuQVGERH4EhgBBFQE/gQmF9ARnP4EljG5gB5Iiz+BGkBAreTqTyCAgIzAnUAogdMbwSIm0cQCeiAtvgR6MIEqInAkEEBARuBKIJzAwxOB5SsBb822n0dQxSoOJNBFBI4EAgmMp4jAkUAAATWQ6s8SaEFvz8vPIqhiWAYQcEQgEogqMD5FBBcS+BrBBPRAqtcTqIEF2vUIqsgmgIAjApFAaIF6NQKbwPcIKKAHUr2WQI8k4I+gilUcQMARgUggvEC/EkEzAM8E7wu2CxGsdhJFEvBH0MQqDiegV3J1JBBQ4NhFBDqBzyTvC4qIQCawjgwCOgKdQIstoFdydSQQRcD2rSNoVimRQPuPCFaLFF1AR7A5EggloK/BdAIZBPRVqE6ghxLwR7BaoBQCOgKdQDqBLiIQCSQSGJuIoNlJlEVAR3C8TKCkfHX7fLn+T5tASoFjf9X6YmlSCozyYvxVO4kSCegI1r8n0FIJ6IF0igQyCej9txiWZAI6gsfoViWxwPiy+2gzqzi1QLUR2ATSCeiBtBuSfAI6AjsWkguM738I9PQC3ZFADoGxKYC95xfQEZRxA4FRRALHLQSOXSSQXkBHsB75BXQEbWQV0APJruL8AmMVCaQW0BEsI5uAXsn21FsJVJFAZgH9juJmAsVOorsLlLsJIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAm3547QAAoGPFkAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBH6XAwc0AAAAAME2+ncWxOXNAI6Cs14i3Db7AAAAAElFTkSuQmCC" width="55" height="55" alt=""></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  About
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">What Happens at YC</a></li>
-                  <li><a class="dropdown-item" href="#">Apply</a></li>
-                  <li><a class="dropdown-item" href="#">YC Interview Guild</a></li>
-                  <li><a class="dropdown-item" href="#">FAQ</a></li>
-                  <li><a class="dropdown-item" href="#">People</a></li>
-                  <li><a class="dropdown-item" href="#">YC Blog</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Companies
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Startup Directory</a></li>
-                  <li><a class="dropdown-item" href="#">Founder Directory</a></li>
-                  <li><a class="dropdown-item" href="#">launch YC</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Startup Jobs
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">All Jobs</a></li>
-                  <li><a class="dropdown-item" href="#">°Engineering</a></li>
-                  <li><a class="dropdown-item" href="#">°Operations</a></li>
-                  <li><a class="dropdown-item" href="#">°Marketing</a></li>
-                  <li><a class="dropdown-item" href="#">°Sales</a></li>
-                  <li><a class="dropdown-item" href="#">Pioneer Intership Program 2024</a></li>
-                  <li><a class="dropdown-item" href="#">Startup Job Guild</a></li>
-                  <li><a class="dropdown-item" href="#">Career Job Coaching</a></li>
-                  <li><a class="dropdown-item" href="#">YC Startup Jobs Blog</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Find a Co-Founder
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Libary
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  SAFE
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Resources
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Startup School</a></li>
-                  <li><a class="dropdown-item" href="#">Newsletter</a></li>
-                  <li><a class="dropdown-item" href="#">For Investors</a></li>
-                  <li><a class="dropdown-item" href="#">Hacker News</a></li>
-                  <li><a class="dropdown-item" href="#">Bookface</a></li>
-                </ul>
-              </li>
-            </ul>
-            <div class="d-flex">
-              <p class="text-start">Apply for <strong>W2025</strong> batch.</p>
-              <a href="SecondYCombinatorspage.html">
-                <button class="tet1">Apply</button>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./styles/Ycombinators.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a href="#"
+          ><img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQEAAAEBCAMAAABPMuDPAAAAQlBMVEXyZSLyZSLyZSLyZSLyZSL6roH91br2ilD+6tr4nGn0eDf7wp3+9e3zbyz3k1z0gUP7uI/5pXX+38n8y6z////yZSKuMvVfAAAABXRSTlOAQMBgICelMzEAAAOgSURBVHhe5MABDQAAAIIw3eifmSB8vA3Zt5vcuGEgCsLeUBSpnxnb4f2vmn068xK5Z8FuFQ8gCB9q80Dw42Pc+3y8UQABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQACBR7GnuAF6MafNKnDsv+xx/+1mv3nOKjDKXwRWbwIWYJl4F6wigvclUCcWaCKCeRKwAtNFoBN4TC1wigjelMA2+S5YRATv+VyfXKC+NYIqEphVQEfgT2Dv0ws8VAT+BEqAXbCJCPwJHAEEuorAn0AAARGBO4H1CCFw7O+JoArIuQVGERH4EhgBBFQE/gQmF9ARnP4EljG5gB5Iiz+BGkBAreTqTyCAgIzAnUAogdMbwSIm0cQCeiAtvgR6MIEqInAkEEBARuBKIJzAwxOB5SsBb822n0dQxSoOJNBFBI4EAgmMp4jAkUAAATWQ6s8SaEFvz8vPIqhiWAYQcEQgEogqMD5FBBcS+BrBBPRAqtcTqIEF2vUIqsgmgIAjApFAaIF6NQKbwPcIKKAHUr2WQI8k4I+gilUcQMARgUggvEC/EkEzAM8E7wu2CxGsdhJFEvBH0MQqDiegV3J1JBBQ4NhFBDqBzyTvC4qIQCawjgwCOgKdQIstoFdydSQQRcD2rSNoVimRQPuPCFaLFF1AR7A5EggloK/BdAIZBPRVqE6ghxLwR7BaoBQCOgKdQDqBLiIQCSQSGJuIoNlJlEVAR3C8TKCkfHX7fLn+T5tASoFjf9X6YmlSCozyYvxVO4kSCegI1r8n0FIJ6IF0igQyCej9txiWZAI6gsfoViWxwPiy+2gzqzi1QLUR2ATSCeiBtBuSfAI6AjsWkguM738I9PQC3ZFADoGxKYC95xfQEZRxA4FRRALHLQSOXSSQXkBHsB75BXQEbWQV0APJruL8AmMVCaQW0BEsI5uAXsn21FsJVJFAZgH9juJmAsVOorsLlLsJIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAm3547QAAoGPFkAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBH6XAwc0AAAAAME2+ncWxOXNAI6Cs14i3Db7AAAAAElFTkSuQmCC"
+            width="55"
+            height="55"
+            alt=""
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                About
               </a>
-            </div>
-          </div>
-        </div>
-      </nav>
-      <div class="container-fluidd">
-        <div class="conn">
-          <h1 class="text1">Y Combinator</h1>
-          <h4 class="text11">Make something people <br> want.</h4>
-          <a href="SecondYCombinatorspage.html">
-            <button class="firstb">Apply to YC</button>
-          </a>
-        </div>
-        <img src="../Projects/garry_and_sam.jpg" alt="" class="firstp">
-        <div class="column">
-          <div class="mc">
-            <h1 class="t1">5,000</h1>
-             <p class="t2">funded startup</p>
-          </div>
-          <div class="mc">
-            <h1 class="t1">$600B</h1>
-            <p class="t2">combined valuation</p>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#">What Happens at YC</a>
+                </li>
+                <li><a class="dropdown-item" href="#">Apply</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">YC Interview Guild</a>
+                </li>
+                <li><a class="dropdown-item" href="#">FAQ</a></li>
+                <li><a class="dropdown-item" href="#">People</a></li>
+                <li><a class="dropdown-item" href="#">YC Blog</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Companies
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Startup Directory</a></li>
+                <li><a class="dropdown-item" href="#">Founder Directory</a></li>
+                <li><a class="dropdown-item" href="#">launch YC</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Startup Jobs
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">All Jobs</a></li>
+                <li><a class="dropdown-item" href="#">°Engineering</a></li>
+                <li><a class="dropdown-item" href="#">°Operations</a></li>
+                <li><a class="dropdown-item" href="#">°Marketing</a></li>
+                <li><a class="dropdown-item" href="#">°Sales</a></li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >Pioneer Intership Program 2024</a
+                  >
+                </li>
+                <li><a class="dropdown-item" href="#">Startup Job Guild</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Career Job Coaching</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">YC Startup Jobs Blog</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Find a Co-Founder
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Libary
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                SAFE
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Resources
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Startup School</a></li>
+                <li><a class="dropdown-item" href="#">Newsletter</a></li>
+                <li><a class="dropdown-item" href="#">For Investors</a></li>
+                <li><a class="dropdown-item" href="#">Hacker News</a></li>
+                <li><a class="dropdown-item" href="#">Bookface</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <p class="text-start">Apply for <strong>W2025</strong> batch.</p>
+            <a href="./pages/SecondYCombinatorspage.html">
+              <button class="tet1">Apply</button>
+            </a>
           </div>
         </div>
       </div>
-      <h3 class="topyc">Top YC companies</h3>
-      <section class="logo-section">
-          <div class="logo1">
-            <section><img src="../Projects/stripe.jpg.png" alt="" width="65px" height="30px" class="logo11"></section>
-          </div>
-          <div class="logo2">
-            <section><img src="../Projects/airbnb-423deceb57ea913e2f3a39a1c2b6ecb690f019933b4d767ac91121777aa59107 (1).png" alt="" width="90px" height="20px" class="logo22" ></section>
-          </div>
-          <div class="logo3">
-            <section><img src="../Projects/instacart-81d147c59ca98d84b72f606de3af981da477423738120d3b2baec64c3162ba14.png" alt="" width="100px" height="20px" class="logo33"></section>
-          </div>
-          <div class="logo4">
-            <section><img src="../Projects/doordash-f41c839bb0522ead71e8d99ed3ae0495c04271f6f3f3edc6b0effbbff172bc1d.png" alt="" width="100px" height="15px" class="logo44"></section>
-          </div>
-          <div class="logo5">
-            <section><img src="../Projects/cruise-38dda623d4f317a49a65099cd460bd1c6b3e4b91ffeccb6df0ec02284345b338.png" width="85px" height="25px" class="logo55"></section>
-          </div>
-          <div class="logo6">
-            <section><img src="../Projects/twitch-1b4772b83a73b6fa827ef467ecc17023a2bfbbf936633bffb5e93674690e74d6.png" alt="" width="70px" height="39px" class="logo66"></section>
-          </div>
-          <div class="logo7">
-            <section><img src="../Projects/coinbase-7d4f13e4f2ed0f6d3a608a7834517031d6663a0cbf1ba231d1dca2f079c091a2.png" alt="" width="90px" height="25px" class="logo77"></section>
-          </div>
-          <div class="logo8">
-            <section><img src="../Projects/pagerduty-dc361aab31ef341eaed4d0a5a420c42f4d557745c67ffc5999c7b556c408d150.png" alt="" width="80px" height="25px" class="logo88"></section>
-          </div>
-          <div class="logo9">
-            <section><img src="../Projects/faire-3113845be6506be7761eaef7257e882b6e0c94081653c0f7459f8ed0c0596338.png" alt="" width="85px" height="15px" class="logo99"></section>
-          </div>
-          <div class="logo10">
-            <section><img src="../Projects/brex-a76f83603a430f266cddacaceaf525080d91c3febf04ea8000ae1b4c67e8786f.png" alt="" width="90px" height="30px" class="logo1010"></section>
-          </div>
-          <div class="logoe11">
-            <section><img src="../Projects/deel-2eb5105300f66ebfa07b0ea805b6680d71c0b6de0272c3f75eebf6d2ae3077cf.png" alt="" width="60px" height="30px" class="logo1111"></section>
-          </div>
-          <div class="logo12">
-            <section><img src="../Projects/rippling-100bc0c1cdabd9e38c671420ba16ba8f6d1af656dc3bc32eeeaa029f1bec257a.png" alt="" width="95px" height="32px" class="logo1212"></section>
-          </div>
-          <div class="logo13">
-            <section><img src="../Projects/reddit-d5ed3340e70326e6a372be76e2ec1b761a4d757954ae69311671f82f59afbedb.png" alt="" width="80px" height="35px" class="logo1313"></section>
-          </div>
-          <div class="logo14">
-            <section><img src="../Projects/gusto-b3f56f64a500a85cb44a2621db217778c9c698f83da59921e41c732dacdb3f35.png" alt="" width="70px" height="30px" class="logo1414"></section>
-          </div>
-          <div class="logo15">
-            <section><img src="../Projects/flexport-ace3180f9926a45ed72eea63ed4c5a1a0aeb4e14ec7eb3ffff7c513aba07d0a9.png" alt="" width="92px" height="25px" class="logo1515"></section>
-          </div>
-          <div class="logo16">
-            <section><img src="../Projects/dropbox-83b803aca663267bc2c480efca454ea8f9d31c39dd2ccba3856104a987e2692d.png" alt="" width="90px" height="30px" class="logo1616"></section>
-          </div>
-          <div class="logo17">
-            <section><img src="../Projects/razorpay-7b4097215fa2d028e821d34bd3d1558309acd87ac5599e8164545e3a7fda5b95.png" alt="" width="90px" height="30px" class="logo1717"></section>
-          </div>
-          <div class="logo18">
-            <section><img src="../Projects/scale_ai-09562d62f19867f7e4af006fb0003148d1f0dff4ad32fa23e283c98a88044443.png" alt="" width="90px" height="30px" class="logo1818"></section>
-          </div>
-          <div class="logo19">
-            <section><img src="../Projects/gitlab-9998d8cb37a75de7004d679606bb8c5517d8c82848fb3e6ff13f8587143545b3.png" alt="" width="90px" height="30px" class="logo1919"></section>
-          </div>
-          <div class="logo20">
-            <section><img src="../Projects/benchling-cabc6ab6f92c92af620210d56c5cb872d5a2b77d3244924a4b35c0fba03aa411.png" alt="" width="90px" height="25px" class="logo2020"></section>
-          </div>
-          <div class="logo21">
-            <section><img src="../Projects/fivetran-80f044801357e31b679f1c6adb33cd674b80a6fba2eef509dcb930f57118d324.png" alt="" width="90px" height="25px" class="logo2121"></section>
-          </div>
-          <div class="logoe22">
-            <section><img src="../Projects/rappi-58eceb42cb4e6ba589842600cba0a0448e2ebe42a8ad4d0b9e26f1e6ccd9f36d.png" alt="" width="80px" height="25px" class="logo2222"></section>
-          </div>
-          <div class="logo23">
-            <section><img src="../Projects/checkr-dfe048bab6c8869e0faa186c947e1f8ba70fe25468952d432d6730bc7c64b557.png" alt="" width="90px" height="25px" class="logo2323"></section>
-          </div>
-          <div class="logo24">
-            <section><img src="../Projects/zapier-a571989e13599601b2555b75551ee1cee4161f77df939d8f9d99ef750d6c9851.png" alt="" width="80px" height="30px" class="logo2424"></section>
-          </div>
-          <div class="logo25">
-            <section><img src="../Projects/whatnot-44d4dfd2add836c788c42baa567fa4769b88f6e4da07d8f8eaf79d321b9be41c.png" alt="" width="90px" height="23px" class="logo2424"></section>
-          </div>
-          <div class="logo26">
-            <section><img src="../Projects/podium-403d2cf6edcf8bd760845e1a356161d69df559a59aeda2e36bf90b0454d75c85.png" alt="" width="90px" height="23px" class="logo2525"></section>
-          </div>
-          <div class="logo27">
-            <section><img src="../Projects/webflow-e0f324025f848a85519e046dfcffa3c517ad4470106e8ee54f697df16be929ce.png" alt="" width="90px" height="23px" class="logo2727"></section>
-          </div>
-          <div class="logo28">
-            <section><img src="../Projects/zepto-ed94889c5a2c2128ca2a39d5ce829a68cc792ed3e1b479089d2cbd3e03fa6483.png" alt="" width="82px" height="23px" class="logo2828"></section>
-          </div>
-          <div class="logo29">
-            <section><img src="../Projects/groww-b94b5a87bc987c7fa70ef04790d93b54fdca1d9edcf3d4d104865d740542fd4f.png" alt="" width="90px" height="23px" class="logo2929"></section>
-          </div>
-          <div class="logo30">
-            <section><img src="../Projects/segment-bc64ab58b63ec0bdb1aa5888ca7771acabc39db12e9c30b4a5215014b766ffc4.png" alt="" width="90px" height="23px" class="logo3030"></section>
-          </div>
-          <div class="logo31">
-            <section><img src="../Projects/ironclad-7ea21638879d20154e44f1614042b2fc93babefe9059a42835874975f73106d1.png" alt="" width="90px" height="20px" class="logo3131"></section>
-          </div>
-          <div class="logo32">
-            <section> <h3 class="logo3232">+</h3></section>
-          </div>
-      </section>
-      <section class="next-sec">
-        <div class="tete">
-            <span class="highlight">We help founders</span> make something <br>people want and the results speak for <br>themselves.
-        </div>
-        <div class="container">
-            <div class="text-container">
-                <div class="line"></div>
-                <span class="text-con">We help founders at <br>their earliest stages <br>regardless of their <br>age.</span>
-            </div>
-            <div class="text-container">
-                <div class="line"></div>
-                <span class="text-con">We improve the <br>success rate of our <br>startups</span>
-            </div>
-            <div class="text-container">
-                <div class="line"></div>
-                <span class="text-con">We give startups a <br>huge fundraising <br>advantage.</span>
-            </div>
-            <div class="text-container">
-                <div class="line"></div>
-                <span class="text-con">Our companies have <br>a track record of <br>becoming billion <br>dollar companies.</span>
-            </div>
-        </div>
-      </section>
-      <div class="tetet">
-        Our formula for <span class="highlight">success</span>. 
+    </nav>
+    <div class="container-fluidd">
+      <div class="conn">
+        <h1 class="text1">Y Combinator</h1>
+        <h4 class="text11">
+          Make something people <br />
+          want.
+        </h4>
+        <a href="./pages/SecondYCombinatorspage.html">
+          <button class="firstb">Apply to YC</button>
+        </a>
       </div>
+      <img src="./images/garry_and_sam.jpg" alt="" class="firstp" />
+      <div class="column">
+        <div class="mc">
+          <h1 class="t1">5,000</h1>
+          <p class="t2">funded startup</p>
+        </div>
+        <div class="mc">
+          <h1 class="t1">$600B</h1>
+          <p class="t2">combined valuation</p>
+        </div>
+      </div>
+    </div>
+    <h3 class="topyc">Top YC companies</h3>
+    <section class="logo-section">
+      <div class="logo1">
+        <section>
+          <img
+            src="./images/stripe.jpg.png"
+            alt=""
+            width="65px"
+            height="30px"
+            class="logo11"
+          />
+        </section>
+      </div>
+      <div class="logo2">
+        <section>
+          <img
+            src="./images/airbnb-423deceb57ea913e2f3a39a1c2b6ecb690f019933b4d767ac91121777aa59107 (1).png"
+            alt=""
+            width="90px"
+            height="20px"
+            class="logo22"
+          />
+        </section>
+      </div>
+      <div class="logo3">
+        <section>
+          <img
+            src="./images/instacart-81d147c59ca98d84b72f606de3af981da477423738120d3b2baec64c3162ba14.png"
+            alt=""
+            width="100px"
+            height="20px"
+            class="logo33"
+          />
+        </section>
+      </div>
+      <div class="logo4">
+        <section>
+          <img
+            src="./images/doordash-f41c839bb0522ead71e8d99ed3ae0495c04271f6f3f3edc6b0effbbff172bc1d.png"
+            alt=""
+            width="100px"
+            height="15px"
+            class="logo44"
+          />
+        </section>
+      </div>
+      <div class="logo5">
+        <section>
+          <img
+            src="./images/cruise-38dda623d4f317a49a65099cd460bd1c6b3e4b91ffeccb6df0ec02284345b338.png"
+            width="85px"
+            height="25px"
+            class="logo55"
+          />
+        </section>
+      </div>
+      <div class="logo6">
+        <section>
+          <img
+            src="./images/twitch-1b4772b83a73b6fa827ef467ecc17023a2bfbbf936633bffb5e93674690e74d6.png"
+            alt=""
+            width="70px"
+            height="39px"
+            class="logo66"
+          />
+        </section>
+      </div>
+      <div class="logo7">
+        <section>
+          <img
+            src="./images/coinbase-7d4f13e4f2ed0f6d3a608a7834517031d6663a0cbf1ba231d1dca2f079c091a2.png"
+            alt=""
+            width="90px"
+            height="25px"
+            class="logo77"
+          />
+        </section>
+      </div>
+      <div class="logo8">
+        <section>
+          <img
+            src="./images/pagerduty-dc361aab31ef341eaed4d0a5a420c42f4d557745c67ffc5999c7b556c408d150.png"
+            alt=""
+            width="80px"
+            height="25px"
+            class="logo88"
+          />
+        </section>
+      </div>
+      <div class="logo9">
+        <section>
+          <img
+            src="./images/faire-3113845be6506be7761eaef7257e882b6e0c94081653c0f7459f8ed0c0596338.png"
+            alt=""
+            width="85px"
+            height="15px"
+            class="logo99"
+          />
+        </section>
+      </div>
+      <div class="logo10">
+        <section>
+          <img
+            src="./images/brex-a76f83603a430f266cddacaceaf525080d91c3febf04ea8000ae1b4c67e8786f.png"
+            alt=""
+            width="90px"
+            height="30px"
+            class="logo1010"
+          />
+        </section>
+      </div>
+      <div class="logoe11">
+        <section>
+          <img
+            src="./images/deel-2eb5105300f66ebfa07b0ea805b6680d71c0b6de0272c3f75eebf6d2ae3077cf.png"
+            alt=""
+            width="60px"
+            height="30px"
+            class="logo1111"
+          />
+        </section>
+      </div>
+      <div class="logo12">
+        <section>
+          <img
+            src="./images/rippling-100bc0c1cdabd9e38c671420ba16ba8f6d1af656dc3bc32eeeaa029f1bec257a.png"
+            alt=""
+            width="95px"
+            height="32px"
+            class="logo1212"
+          />
+        </section>
+      </div>
+      <div class="logo13">
+        <section>
+          <img
+            src="./images/reddit-d5ed3340e70326e6a372be76e2ec1b761a4d757954ae69311671f82f59afbedb.png"
+            alt=""
+            width="80px"
+            height="35px"
+            class="logo1313"
+          />
+        </section>
+      </div>
+      <div class="logo14">
+        <section>
+          <img
+            src="./images/gusto-b3f56f64a500a85cb44a2621db217778c9c698f83da59921e41c732dacdb3f35.png"
+            alt=""
+            width="70px"
+            height="30px"
+            class="logo1414"
+          />
+        </section>
+      </div>
+      <div class="logo15">
+        <section>
+          <img
+            src="./images/flexport-ace3180f9926a45ed72eea63ed4c5a1a0aeb4e14ec7eb3ffff7c513aba07d0a9.png"
+            alt=""
+            width="92px"
+            height="25px"
+            class="logo1515"
+          />
+        </section>
+      </div>
+      <div class="logo16">
+        <section>
+          <img
+            src="./images/dropbox-83b803aca663267bc2c480efca454ea8f9d31c39dd2ccba3856104a987e2692d.png"
+            alt=""
+            width="90px"
+            height="30px"
+            class="logo1616"
+          />
+        </section>
+      </div>
+      <div class="logo17">
+        <section>
+          <img
+            src="./images/razorpay-7b4097215fa2d028e821d34bd3d1558309acd87ac5599e8164545e3a7fda5b95.png"
+            alt=""
+            width="90px"
+            height="30px"
+            class="logo1717"
+          />
+        </section>
+      </div>
+      <div class="logo18">
+        <section>
+          <img
+            src="./images/scale_ai-09562d62f19867f7e4af006fb0003148d1f0dff4ad32fa23e283c98a88044443.png"
+            alt=""
+            width="90px"
+            height="30px"
+            class="logo1818"
+          />
+        </section>
+      </div>
+      <div class="logo19">
+        <section>
+          <img
+            src="./images/gitlab-9998d8cb37a75de7004d679606bb8c5517d8c82848fb3e6ff13f8587143545b3.png"
+            alt=""
+            width="90px"
+            height="30px"
+            class="logo1919"
+          />
+        </section>
+      </div>
+      <div class="logo20">
+        <section>
+          <img
+            src="./images/benchling-cabc6ab6f92c92af620210d56c5cb872d5a2b77d3244924a4b35c0fba03aa411.png"
+            alt=""
+            width="90px"
+            height="25px"
+            class="logo2020"
+          />
+        </section>
+      </div>
+      <div class="logo21">
+        <section>
+          <img
+            src="./images/fivetran-80f044801357e31b679f1c6adb33cd674b80a6fba2eef509dcb930f57118d324.png"
+            alt=""
+            width="90px"
+            height="25px"
+            class="logo2121"
+          />
+        </section>
+      </div>
+      <div class="logoe22">
+        <section>
+          <img
+            src="./images/rappi-58eceb42cb4e6ba589842600cba0a0448e2ebe42a8ad4d0b9e26f1e6ccd9f36d.png"
+            alt=""
+            width="80px"
+            height="25px"
+            class="logo2222"
+          />
+        </section>
+      </div>
+      <div class="logo23">
+        <section>
+          <img
+            src="./images/checkr-dfe048bab6c8869e0faa186c947e1f8ba70fe25468952d432d6730bc7c64b557.png"
+            alt=""
+            width="90px"
+            height="25px"
+            class="logo2323"
+          />
+        </section>
+      </div>
+      <div class="logo24">
+        <section>
+          <img
+            src="./images/zapier-a571989e13599601b2555b75551ee1cee4161f77df939d8f9d99ef750d6c9851.png"
+            alt=""
+            width="80px"
+            height="30px"
+            class="logo2424"
+          />
+        </section>
+      </div>
+      <div class="logo25">
+        <section>
+          <img
+            src="./images/whatnot-44d4dfd2add836c788c42baa567fa4769b88f6e4da07d8f8eaf79d321b9be41c.png"
+            alt=""
+            width="90px"
+            height="23px"
+            class="logo2424"
+          />
+        </section>
+      </div>
+      <div class="logo26">
+        <section>
+          <img
+            src="./images/podium-403d2cf6edcf8bd760845e1a356161d69df559a59aeda2e36bf90b0454d75c85.png"
+            alt=""
+            width="90px"
+            height="23px"
+            class="logo2525"
+          />
+        </section>
+      </div>
+      <div class="logo27">
+        <section>
+          <img
+            src="./images/webflow-e0f324025f848a85519e046dfcffa3c517ad4470106e8ee54f697df16be929ce.png"
+            alt=""
+            width="90px"
+            height="23px"
+            class="logo2727"
+          />
+        </section>
+      </div>
+      <div class="logo28">
+        <section>
+          <img
+            src="./images/zepto-ed94889c5a2c2128ca2a39d5ce829a68cc792ed3e1b479089d2cbd3e03fa6483.png"
+            alt=""
+            width="82px"
+            height="23px"
+            class="logo2828"
+          />
+        </section>
+      </div>
+      <div class="logo29">
+        <section>
+          <img
+            src="./images/groww-b94b5a87bc987c7fa70ef04790d93b54fdca1d9edcf3d4d104865d740542fd4f.png"
+            alt=""
+            width="90px"
+            height="23px"
+            class="logo2929"
+          />
+        </section>
+      </div>
+      <div class="logo30">
+        <section>
+          <img
+            src="./images/segment-bc64ab58b63ec0bdb1aa5888ca7771acabc39db12e9c30b4a5215014b766ffc4.png"
+            alt=""
+            width="90px"
+            height="23px"
+            class="logo3030"
+          />
+        </section>
+      </div>
+      <div class="logo31">
+        <section>
+          <img
+            src="./images/ironclad-7ea21638879d20154e44f1614042b2fc93babefe9059a42835874975f73106d1.png"
+            alt=""
+            width="90px"
+            height="20px"
+            class="logo3131"
+          />
+        </section>
+      </div>
+      <div class="logo32">
+        <section><h3 class="logo3232">+</h3></section>
+      </div>
+    </section>
+    <section class="next-sec">
+      <div class="tete">
+        <span class="highlight">We help founders</span> make something
+        <br />people want and the results speak for <br />themselves.
+      </div>
+      <div class="container">
+        <div class="text-container">
+          <div class="line"></div>
+          <span class="text-con"
+            >We help founders at <br />their earliest stages <br />regardless of
+            their <br />age.</span
+          >
+        </div>
+        <div class="text-container">
+          <div class="line"></div>
+          <span class="text-con"
+            >We improve the <br />success rate of our <br />startups</span
+          >
+        </div>
+        <div class="text-container">
+          <div class="line"></div>
+          <span class="text-con"
+            >We give startups a <br />huge fundraising <br />advantage.</span
+          >
+        </div>
+        <div class="text-container">
+          <div class="line"></div>
+          <span class="text-con"
+            >Our companies have <br />a track record of <br />becoming billion
+            <br />dollar companies.</span
+          >
+        </div>
+      </div>
+    </section>
+    <div class="tetet">
+      Our formula for <span class="highlight">success</span>.
+    </div>
 
     <div class="vid1">
-      <img src="maxresdefault.webp" alt="" width="100%">
+      <img src="./images/maxresdefault.webp" alt="" width="100%" />
     </div>
 
     <div class="ycon">
-        YC is <span class="highlight">run by startup founders</span> who have built <br>exactly what they wanted when starting and <br>growing a startup.
-        <div class="containerxx">
+      YC is <span class="highlight">run by startup founders</span> who have
+      built <br />exactly what they wanted when starting and <br />growing a
+      startup.
+      <div class="containerxx">
         <div class="itemxx">
-            <img src="../Projects/most-experienced-partners-DX4ZPbr4.jpg" alt="Image 1" class="imgxx" width="92%">
-            <div class="sectionxx"></div> 
-            <h5 class="ppq">The most experienced partners</h5>
-            <p class="headingxx">Each founder is assigned a dedicated group partner who has mentored hundreds of YC companies. They have more data on what it takes to build a successful startup than any other early stage startup advisor. These group partners read applications, interview companies, and mentor startups throughout the batch. You can access them in person, over email, and on Slack.</p>
+          <img
+            src="./images/most-experienced-partners-DX4ZPbr4.jpg"
+            alt="Image 1"
+            class="imgxx"
+            width="92%"
+          />
+          <div class="sectionxx"></div>
+          <h5 class="ppq">The most experienced partners</h5>
+          <p class="headingxx">
+            Each founder is assigned a dedicated group partner who has mentored
+            hundreds of YC companies. They have more data on what it takes to
+            build a successful startup than any other early stage startup
+            advisor. These group partners read applications, interview
+            companies, and mentor startups throughout the batch. You can access
+            them in person, over email, and on Slack.
+          </p>
         </div>
         <div class="itemxx">
-           <img src="investor-network-DsrGWUIM.jpg" alt="Image 1" class="imgxx" width="90%" height="54%">
-           <div class="sectionxx"></div> 
-           <h5 class="ppq">Investor network</h5>
-           <p class="headingxx">YC companies have raised $85 billion dollars from the best investors in the world. Our founders have access to the YC Investor Database which has profiles and reviews for more than 50,000 startup investors.</p>
+          <img
+            src="./images/investor-network-DsrGWUIM.jpg"
+            alt="Image 1"
+            class="imgxx"
+            width="90%"
+            height="54%"
+          />
+          <div class="sectionxx"></div>
+          <h5 class="ppq">Investor network</h5>
+          <p class="headingxx">
+            YC companies have raised $85 billion dollars from the best investors
+            in the world. Our founders have access to the YC Investor Database
+            which has profiles and reviews for more than 50,000 startup
+            investors.
+          </p>
         </div>
         <div class="itemxx">
-           <img src="private-social-network-DAUtdNFy.jpg" alt="Image 1" class="imgxx" width="90%" height="53%">
-           <div class="sectionxx"></div> 
-           <h5 class="ppq">Private social network only for founders</h5>
-           <p class="headingxx">YC founders get to benefit from the collective wisdom of over 9000 YC alumni. They can access these alums through Bookface, our private social network. We have a forum for asking questions to the community, a founder directory for finding specific people who can provide advice and intros, and a company directory for finding potential customers.</p>
+          <img
+            src="./images/private-social-network-DAUtdNFy.jpg"
+            alt="Image 1"
+            class="imgxx"
+            width="90%"
+            height="53%"
+          />
+          <div class="sectionxx"></div>
+          <h5 class="ppq">Private social network only for founders</h5>
+          <p class="headingxx">
+            YC founders get to benefit from the collective wisdom of over 9000
+            YC alumni. They can access these alums through Bookface, our private
+            social network. We have a forum for asking questions to the
+            community, a founder directory for finding specific people who can
+            provide advice and intros, and a company directory for finding
+            potential customers.
+          </p>
         </div>
         <div class="itemxx">
-           <img src="exclusive-deals-DZOi8DL7.jpg" alt="Image 1" class="imgxx" width="90%" height="53%">
-           <div class="sectionxx"></div> <h5 class="ppq">Exclusive deals</h5>
-           <p class="headingxx">YC founders have access to over 1000 deals from leading software companies. Every YC company gets free credits or significant discounts on hosting, banking, cap table management, back office, and much more. Companies report these deals to be worth in excess of $500,000.</p>
+          <img
+            src="./images/exclusive-deals-DZOi8DL7.jpg"
+            alt="Image 1"
+            class="imgxx"
+            width="90%"
+            height="53%"
+          />
+          <div class="sectionxx"></div>
+          <h5 class="ppq">Exclusive deals</h5>
+          <p class="headingxx">
+            YC founders have access to over 1000 deals from leading software
+            companies. Every YC company gets free credits or significant
+            discounts on hosting, banking, cap table management, back office,
+            and much more. Companies report these deals to be worth in excess of
+            $500,000.
+          </p>
         </div>
         <div class="itemxx">
-           <img src="secret-handbook-BLok8-bB.jpg" alt="Image 1" class="imgxx" width="90%" height="53%">
-           <div class="sectionxx"></div> 
-           <h5 class="ppq">The best written advice</h5>
-           <p class="headingxx">YC founders get to benefit from our collective experience funding 5000 companies across almost 20 years. We have extensive documentation for common questions about fundraising, go to market, sales, product market fit, mental health, hiring, and much more.</p>
+          <img
+            src="./images/secret-handbook-BLok8-bB.jpg"
+            alt="Image 1"
+            class="imgxx"
+            width="90%"
+            height="53%"
+          />
+          <div class="sectionxx"></div>
+          <h5 class="ppq">The best written advice</h5>
+          <p class="headingxx">
+            YC founders get to benefit from our collective experience funding
+            5000 companies across almost 20 years. We have extensive
+            documentation for common questions about fundraising, go to market,
+            sales, product market fit, mental health, hiring, and much more.
+          </p>
         </div>
         <div class="itemxx">
-           <img src="capital-after-batch-DQmLQXDH.jpg" alt="Image 1" class="imgxx" width="90%" height="53%">
-           <div class="sectionxx"></div> 
-           <h5 class="ppq">Networks to build your team</h5>
-           <p class="headingxx">Through Work at a Startup and HN, we help our founders hire the small number of early engineers and other team members critical to finding product market fit. At any given time there are 150,000+ candidates searching for jobs at early stage YC companies.</p>
+          <img
+            src="./images/capital-after-batch-DQmLQXDH.jpg"
+            alt="Image 1"
+            class="imgxx"
+            width="90%"
+            height="53%"
+          />
+          <div class="sectionxx"></div>
+          <h5 class="ppq">Networks to build your team</h5>
+          <p class="headingxx">
+            Through Work at a Startup and HN, we help our founders hire the
+            small number of early engineers and other team members critical to
+            finding product market fit. At any given time there are 150,000+
+            candidates searching for jobs at early stage YC companies.
+          </p>
         </div>
-    </div>
+      </div>
     </div>
     <div class="tetet">
-      We put <span class="highlight">founders' interests</span> first. 
+      We put <span class="highlight">founders' interests</span> first.
     </div>
-    
+
     <section class="containerzz">
       <div class="itemzz">
-        <div class="divv"><main class="sectionzz"></main> <p>We don’t take a board seat.</p></div>
-        <div class="divv"><main class="sectionzz"></main> <p>We don’t take weeks/months to decide to invest.</p></div>
-        <div class="divv"><main class="sectionzz"></main> <p>We don’t require decks, business plans, or MBAs.</p></div>
+        <div class="divv">
+          <main class="sectionzz"></main>
+          <p>We don’t take a board seat.</p>
+        </div>
+        <div class="divv">
+          <main class="sectionzz"></main>
+          <p>We don’t take weeks/months to decide to invest.</p>
+        </div>
+        <div class="divv">
+          <main class="sectionzz"></main>
+          <p>We don’t require decks, business plans, or MBAs.</p>
+        </div>
       </div>
       <div class="textzz">
-        <div class="divv"><main class="sectionzz"></main> <p>We don’t demand 20% of your company.</p></div>
-        <div class="divv"><main class="sectionzz"></main> <p>We don’t charge fees.</p></div>
-        <div class="divv"><main class="sectionzz"></main> <p>We don't tell you what to do. We only offer advice.</p></div>
+        <div class="divv">
+          <main class="sectionzz"></main>
+          <p>We don’t demand 20% of your company.</p>
+        </div>
+        <div class="divv">
+          <main class="sectionzz"></main>
+          <p>We don’t charge fees.</p>
+        </div>
+        <div class="divv">
+          <main class="sectionzz"></main>
+          <p>We don't tell you what to do. We only offer advice.</p>
+        </div>
       </div>
     </section>
     <div class="hell">
-      <img src="Left-BiSNksVM.jpg" width="23%">
-      <img src="Middle-ORNvunn1.jpg" width="23%" height="243px">
-      <img src="Right-CEqBBFo3.jpg" width="23%"> 
+      <img src="./images/Left-BiSNksVM.jpg" width="23%" />
+      <img src="./images/Middle-ORNvunn1.jpg" width="23%" height="243px" />
+      <img src="./images/Right-CEqBBFo3.jpg" width="23%" />
     </div>
     <section class="for">
-      <div class="tetet">
-        Is YC Worth 7%? 
+      <div class="tetet">Is YC Worth 7%?</div>
+      <div class="vid1">
+        <img src="./images/maxresdefault (1).jpg" alt="" width="100%" />
       </div>
-    <div class="vid1">
-      <img src="maxresdefault (1).jpg" alt="" width="100%">
-    </div>
-    <div class="tetett">
-      <span class="highlight">Learn more </span>about evaluating equity.
-    </div>
+      <div class="tetett">
+        <span class="highlight">Learn more </span>about evaluating equity.
+      </div>
     </section>
 
-    <div class="tetettt">
-      Hear more from the community.
-    </div>
+    <div class="tetettt">Hear more from the community.</div>
     <section class="hard">
-        <div class="sectionk">
-            <img src="marc-andreessen-B6IB5XEE (1).jpg">
-            <div class="textk">
-                <p>"Y Combinator is the best program for creating top-end entrepreneurs that has ever existed." <br><strong>Marc Andreessen</strong>, General Partner, Andreessen Horowitz</p>
-            </div>
+      <div class="sectionk">
+        <img src="./images/marc-andreessen-B6IB5XEE (1).jpg" />
+        <div class="textk">
+          <p>
+            "Y Combinator is the best program for creating top-end entrepreneurs
+            that has ever existed." <br /><strong>Marc Andreessen</strong>,
+            General Partner, Andreessen Horowitz
+          </p>
         </div>
-        <div class="sectionk">
-            <img src="ron-conway-DahY8Lgh.jpg" alt="Image 2">
-            <div class="textk">
-                <p>"Y Combinator is the best startup accelerator in the world. YC helps their companies a lot, and the YC community is a huge asset for the companies that go through the program." <br><strong>Ron Conway</strong>, Founder, SV Angel</p>
-            </div>
+      </div>
+      <div class="sectionk">
+        <img src="./images/ron-conway-DahY8Lgh.jpg" alt="Image 2" />
+        <div class="textk">
+          <p>
+            "Y Combinator is the best startup accelerator in the world. YC helps
+            their companies a lot, and the YC community is a huge asset for the
+            companies that go through the program." <br /><strong
+              >Ron Conway</strong
+            >, Founder, SV Angel
+          </p>
         </div>
-        <div class="sectionk">
-            <img src="brian-chesky-Dok3kT1b.jpg" alt="Image 3">
-            <div class="textk">
-                <p>"At YC, we were challenged to do things that don't scale – to start with the perfect experience for one person, then work backwards and scale it to 100 people who love us. This was the best piece of advice we've ever received." <br><strong>Brian Chesky</strong>, Founder, Airbnb (YC W09)</p>
-            </div>
+      </div>
+      <div class="sectionk">
+        <img src="./images/brian-chesky-Dok3kT1b.jpg" alt="Image 3" />
+        <div class="textk">
+          <p>
+            "At YC, we were challenged to do things that don't scale – to start
+            with the perfect experience for one person, then work backwards and
+            scale it to 100 people who love us. This was the best piece of
+            advice we've ever received." <br /><strong>Brian Chesky</strong>,
+            Founder, Airbnb (YC W09)
+          </p>
         </div>
-        <div class="sectionk">
-            <img src="patrick-collinson-MjupD62W.jpg" alt="Image 4">
-            <div class="textk">
-                <p>"I doubt that Stripe would have worked without YC. It's that simple. Acquiring early customers, figuring out who to hire, closing deals with banks, raising money – YC's partners were closely involved and crucially helpful." <br><strong>Patrick Collison</strong>, Founder, Stripe (YC S09)</p>
-            </div>
+      </div>
+      <div class="sectionk">
+        <img src="./images/patrick-collinson-MjupD62W.jpg" alt="Image 4" />
+        <div class="textk">
+          <p>
+            "I doubt that Stripe would have worked without YC. It's that simple.
+            Acquiring early customers, figuring out who to hire, closing deals
+            with banks, raising money – YC's partners were closely involved and
+            crucially helpful." <br /><strong>Patrick Collison</strong>,
+            Founder, Stripe (YC S09)
+          </p>
         </div>
+      </div>
     </section>
     <section class="nine">
-        <div class="tetet">
-            The Latest from YC
+      <div class="tetet">The Latest from YC</div>
+      <div class="mbe">
+        <div>
+          <img src="./images/hqdefault (1).jpg" width="350" />
+          <p>What Founder Mode Really Means <br />79k views • 2 months ago</p>
         </div>
-        <div class="mbe">
-            <div>
-                <img src="hqdefault (1).jpg" width="350">
-                <p>What Founder Mode Really Means <br>79k views • 2 months ago</p>
-            </div>
-            <div>
-                <img src="hqdefault (2).jpg" width="350">
-                <p>Building The World's Best Image Diffusion Model <br>17k views • 3 months ago</p>
-            </div>
-            <div>
-                <img src="hqdefault.jpg"width="350">
-                <p>Signs Your Company Is Recovery From ZIRP <br> 19k views • 3 months ago </p>
-            </div>
+        <div>
+          <img src="./images/hqdefault (2).jpg" width="350" />
+          <p>
+            Building The World's Best Image Diffusion Model <br />17k views • 3
+            months ago
+          </p>
         </div>
-        <div class="containeraaaq">
-            <div class="itemaaa">
-                <div class="textaaa"><strong>Startup School</strong> <br>YC's Group Partners teach you to build the foundation of a billion dollar company</div>
-                <img src="startupschool.png" alt="Image 1" class="imageaaa">
-            </div>
-            <div class="itemaaa">
-                <div class="textaaa"><strong>Essays by Paul Graham</strong> <br>A collection of essays by Y Combinator co-founder Paul Graham</div>
-                <img src="paulg.jpeg" alt="Image 2" class="imageaaa">
-            </div>
-            <div class="itemaaa">
-                <div class="textaaa"><strong>Explore more content</strong> <br>Visit the YC Library, the hub for YC's startup videos, essays, podcasts, and more</div>
-                <img src="paulglecture.png" alt="Image 3" class="imageaaa">
-            </div>
+        <div>
+          <img src="./images/hqdefault.jpg" width="350" />
+          <p>
+            Signs Your Company Is Recovery From ZIRP <br />
+            19k views • 3 months ago
+          </p>
         </div>
+      </div>
+      <div class="containeraaaq">
+        <div class="itemaaa">
+          <div class="textaaa">
+            <strong>Startup School</strong> <br />YC's Group Partners teach you
+            to build the foundation of a billion dollar company
+          </div>
+          <img src="./images/startupschool.png" alt="Image 1" class="imageaaa" />
         </div>
+        <div class="itemaaa">
+          <div class="textaaa">
+            <strong>Essays by Paul Graham</strong> <br />A collection of essays
+            by Y Combinator co-founder Paul Graham
+          </div>
+          <img src="./images/paulg.jpeg" alt="Image 2" class="imageaaa" />
+        </div>
+        <div class="itemaaa">
+          <div class="textaaa">
+            <strong>Explore more content</strong> <br />Visit the YC Library,
+            the hub for YC's startup videos, essays, podcasts, and more
+          </div>
+          <img src="./images/paulglecture.png" alt="Image 3" class="imageaaa" />
+        </div>
+      </div>
     </section>
-    <div class="tetet">
-        Want to learn more?
-    </div>
+    <div class="tetet">Want to learn more?</div>
     <div class="containeraaa">
-        <div class="itemaaa">
-            <div class="textaaa"><strong>YC Libary</strong> <br>Videos, podcasts, and essays for startup founders</div>
-            <img src="learn-more-library.jpg" alt="Image 1" class="imageaaa">
+      <div class="itemaaa">
+        <div class="textaaa">
+          <strong>YC Libary</strong> <br />Videos, podcasts, and essays for
+          startup founders
         </div>
-        <div class="itemaaa">
-            <div class="textaaa"><strong>News Letter</strong> <br>Keep up with the latest news, launches, jobs, and events from the YC community</div>
-            <img src="learn-more-newsletter.jpg" alt="Image 2" class="imageaaa">
+        <img src="./images/learn-more-library.jpg" alt="Image 1" class="imageaaa" />
+      </div>
+      <div class="itemaaa">
+        <div class="textaaa">
+          <strong>News Letter</strong> <br />Keep up with the latest news,
+          launches, jobs, and events from the YC community
         </div>
-        <div class="itemaaa">
-            <div class="textaaa"><strong>Launch YC</strong> <br>Discover new YC companies and products</div>
-            <img src="learn-more-launch-yc.jpg" alt="Image 3" class="imageaaa">
+        <img src="./images/learn-more-newsletter.jpg" alt="Image 2" class="imageaaa" />
+      </div>
+      <div class="itemaaa">
+        <div class="textaaa">
+          <strong>Launch YC</strong> <br />Discover new YC companies and
+          products
         </div>
-        <div class="itemaaa">
-            <div class="textaaa"><strong>Work at a Startup</strong> <br>Find your next role at a YC startup</div>
-            <img src="learn-more-waas.jpg" alt="Image 4" class="imageaaa">
+        <img src="./images/learn-more-launch-yc.jpg" alt="Image 3" class="imageaaa" />
+      </div>
+      <div class="itemaaa">
+        <div class="textaaa">
+          <strong>Work at a Startup</strong> <br />Find your next role at a YC
+          startup
         </div>
-        <div class="itemaaa">
-            <div class="textaaa"><strong>Blog</strong> <br>Essays, events, and announcements from YC</div>
-            <img src="learn-more-blog.jpg" alt="Image 5" class="imageaaa">
+        <img src="./images/learn-more-waas.jpg" alt="Image 4" class="imageaaa" />
+      </div>
+      <div class="itemaaa">
+        <div class="textaaa">
+          <strong>Blog</strong> <br />Essays, events, and announcements from YC
         </div>
-        <div class="itemaaa">
-            <div class="textaaa"><strong>Co-Founder Matching</strong> <br>Meet a potential co-founder to start a startup with</div>
-            <img src="learn-more-events.jpg" alt="Image 6" class="imageaaa">
+        <img src="./images/learn-more-blog.jpg" alt="Image 5" class="imageaaa" />
+      </div>
+      <div class="itemaaa">
+        <div class="textaaa">
+          <strong>Co-Founder Matching</strong> <br />Meet a potential co-founder
+          to start a startup with
         </div>
+        <img src="./images/learn-more-events.jpg" alt="Image 6" class="imageaaa" />
+      </div>
     </div>
     <div class="grid">
-        <div class="ooo">
-            <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQEAAAEBCAMAAABPMuDPAAAAQlBMVEXyZSLyZSLyZSLyZSLyZSL6roH91br2ilD+6tr4nGn0eDf7wp3+9e3zbyz3k1z0gUP7uI/5pXX+38n8y6z////yZSKuMvVfAAAABXRSTlOAQMBgICelMzEAAAOgSURBVHhe5MABDQAAAIIw3eifmSB8vA3Zt5vcuGEgCsLeUBSpnxnb4f2vmn068xK5Z8FuFQ8gCB9q80Dw42Pc+3y8UQABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQACBR7GnuAF6MafNKnDsv+xx/+1mv3nOKjDKXwRWbwIWYJl4F6wigvclUCcWaCKCeRKwAtNFoBN4TC1wigjelMA2+S5YRATv+VyfXKC+NYIqEphVQEfgT2Dv0ws8VAT+BEqAXbCJCPwJHAEEuorAn0AAARGBO4H1CCFw7O+JoArIuQVGERH4EhgBBFQE/gQmF9ARnP4EljG5gB5Iiz+BGkBAreTqTyCAgIzAnUAogdMbwSIm0cQCeiAtvgR6MIEqInAkEEBARuBKIJzAwxOB5SsBb822n0dQxSoOJNBFBI4EAgmMp4jAkUAAATWQ6s8SaEFvz8vPIqhiWAYQcEQgEogqMD5FBBcS+BrBBPRAqtcTqIEF2vUIqsgmgIAjApFAaIF6NQKbwPcIKKAHUr2WQI8k4I+gilUcQMARgUggvEC/EkEzAM8E7wu2CxGsdhJFEvBH0MQqDiegV3J1JBBQ4NhFBDqBzyTvC4qIQCawjgwCOgKdQIstoFdydSQQRcD2rSNoVimRQPuPCFaLFF1AR7A5EggloK/BdAIZBPRVqE6ghxLwR7BaoBQCOgKdQDqBLiIQCSQSGJuIoNlJlEVAR3C8TKCkfHX7fLn+T5tASoFjf9X6YmlSCozyYvxVO4kSCegI1r8n0FIJ6IF0igQyCej9txiWZAI6gsfoViWxwPiy+2gzqzi1QLUR2ATSCeiBtBuSfAI6AjsWkguM738I9PQC3ZFADoGxKYC95xfQEZRxA4FRRALHLQSOXSSQXkBHsB75BXQEbWQV0APJruL8AmMVCaQW0BEsI5uAXsn21FsJVJFAZgH9juJmAsVOorsLlLsJIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAm3547QAAoGPFkAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBH6XAwc0AAAAAME2+ncWxOXNAI6Cs14i3Db7AAAAAElFTkSuQmCC" width="55" height="55"></a>
-        </div>
-        <div>
-                <p><strong>Programs</strong></p>
-                <p>YC Program</p>
-                <p>Startup School</p>
-                <p>Work at a Startup</p>
-                <p>Co-Founder Matching</p>
-        </div>
-       <div>
-            <p><strong>Company</strong></p>
-            <p>YC Blog</p>
-            <p>Contact</p>
-            <p> Press</p>
-            <p>People</p>
-            <p>Careers </p>
-            <p>Privacy Policy</p>
-            <p>Notice at collection</p>
-            <p>Security</p>
-            <p>Terms of Use</p>
-       </div>
-       <div>
-            <p><strong>Resources</strong></p>
-            <p>Startup Directory</p>
-            <p>Startup Libary</p>
-            <p>Investors</p>
-            <p>SAFE</p>
-            <p>Hacker News</p>
-            <p>Launch YC </p>
-            <p>YC Deals</p>
-       </div>
-       <div>
-         <p>Make something people want.</p>
-       </div>
+      <div class="ooo">
+        <a href="#"
+          ><img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQEAAAEBCAMAAABPMuDPAAAAQlBMVEXyZSLyZSLyZSLyZSLyZSL6roH91br2ilD+6tr4nGn0eDf7wp3+9e3zbyz3k1z0gUP7uI/5pXX+38n8y6z////yZSKuMvVfAAAABXRSTlOAQMBgICelMzEAAAOgSURBVHhe5MABDQAAAIIw3eifmSB8vA3Zt5vcuGEgCsLeUBSpnxnb4f2vmn068xK5Z8FuFQ8gCB9q80Dw42Pc+3y8UQABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQACBR7GnuAF6MafNKnDsv+xx/+1mv3nOKjDKXwRWbwIWYJl4F6wigvclUCcWaCKCeRKwAtNFoBN4TC1wigjelMA2+S5YRATv+VyfXKC+NYIqEphVQEfgT2Dv0ws8VAT+BEqAXbCJCPwJHAEEuorAn0AAARGBO4H1CCFw7O+JoArIuQVGERH4EhgBBFQE/gQmF9ARnP4EljG5gB5Iiz+BGkBAreTqTyCAgIzAnUAogdMbwSIm0cQCeiAtvgR6MIEqInAkEEBARuBKIJzAwxOB5SsBb822n0dQxSoOJNBFBI4EAgmMp4jAkUAAATWQ6s8SaEFvz8vPIqhiWAYQcEQgEogqMD5FBBcS+BrBBPRAqtcTqIEF2vUIqsgmgIAjApFAaIF6NQKbwPcIKKAHUr2WQI8k4I+gilUcQMARgUggvEC/EkEzAM8E7wu2CxGsdhJFEvBH0MQqDiegV3J1JBBQ4NhFBDqBzyTvC4qIQCawjgwCOgKdQIstoFdydSQQRcD2rSNoVimRQPuPCFaLFF1AR7A5EggloK/BdAIZBPRVqE6ghxLwR7BaoBQCOgKdQDqBLiIQCSQSGJuIoNlJlEVAR3C8TKCkfHX7fLn+T5tASoFjf9X6YmlSCozyYvxVO4kSCegI1r8n0FIJ6IF0igQyCej9txiWZAI6gsfoViWxwPiy+2gzqzi1QLUR2ATSCeiBtBuSfAI6AjsWkguM738I9PQC3ZFADoGxKYC95xfQEZRxA4FRRALHLQSOXSSQXkBHsB75BXQEbWQV0APJruL8AmMVCaQW0BEsI5uAXsn21FsJVJFAZgH9juJmAsVOorsLlLsJIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAm3547QAAoGPFkAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBH6XAwc0AAAAAME2+ncWxOXNAI6Cs14i3Db7AAAAAElFTkSuQmCC"
+            width="55"
+            height="55"
+        /></a>
       </div>
-      <hr>
-      <div class="mnm">
-        <p>© 2024 Y Combinator</p>
-        <div>
-            <i class="fa-brands fa-twitter"></i>
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-linkedin"></i>
-            <i class="fa-brands fa-youtube"></i>
-        </div>
+      <div>
+        <p><strong>Programs</strong></p>
+        <p>YC Program</p>
+        <p>Startup School</p>
+        <p>Work at a Startup</p>
+        <p>Co-Founder Matching</p>
       </div>
-</body>
+      <div>
+        <p><strong>Company</strong></p>
+        <p>YC Blog</p>
+        <p>Contact</p>
+        <p>Press</p>
+        <p>People</p>
+        <p>Careers</p>
+        <p>Privacy Policy</p>
+        <p>Notice at collection</p>
+        <p>Security</p>
+        <p>Terms of Use</p>
+      </div>
+      <div>
+        <p><strong>Resources</strong></p>
+        <p>Startup Directory</p>
+        <p>Startup Libary</p>
+        <p>Investors</p>
+        <p>SAFE</p>
+        <p>Hacker News</p>
+        <p>Launch YC</p>
+        <p>YC Deals</p>
+      </div>
+      <div>
+        <p>Make something people want.</p>
+      </div>
+    </div>
+    <hr />
+    <div class="mnm">
+      <p>© 2024 Y Combinator</p>
+      <div>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+    </div>
+  </body>
 </html>
